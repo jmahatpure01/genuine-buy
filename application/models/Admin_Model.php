@@ -284,7 +284,7 @@ class Admin_Model extends CI_Model
             if ($this->db->update('users', array('user_salt'=> $salt, 'user_password' => $newPassword))) {
                 $subject = "Password Recovery";
                 $html = "<p>Your new Auto-Generated Password is: ".$password."</p>";
-                //$this->sendMail($email, $subject, $html);
+                $this->sendMail($email, $subject, $html);
                 $this->session->set_flashdata(
                     'notify',
                     "$.notify({ allow_dismiss: true, icon: 'pe-7s-bell',
@@ -381,10 +381,10 @@ class Admin_Model extends CI_Model
         $config['useragent'] = 'Genuine Buy';
         $config['protocol'] = 'smtp';
         $config['smtp_crypto'] =  'ssl';
-        $config['smtp_host'] =  '';
-        $config['smtp_user'] =  '';
-        $config['smtp_pass'] = '';
-        $config['smtp_port'] = '465';
+        $config['smtp_host'] =  'smtp.elasticemail.com';
+        $config['smtp_user'] =  'jmahatpure01@gmail.com';
+        $config['smtp_pass'] = '76fe9c7e-7bd4-4c8f-b579-48631d690d61';
+        $config['smtp_port'] = '2525';
         $config['charset'] = 'UTF8';
         $config['mailtype'] = 'html';
         $this->email->set_newline("\r\n");
