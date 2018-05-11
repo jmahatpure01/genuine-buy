@@ -378,17 +378,7 @@ class Admin_Model extends CI_Model
     public function sendMail($to, $subject, $html)
     {
         $this->load->library('email');
-        $config['useragent'] = 'Genuine Buy';
-        $config['protocol'] = 'smtp';
-        $config['smtp_crypto'] =  'tls';
-        $config['smtp_host'] =  'smtp.elasticemail.com';
-        $config['smtp_user'] =  'jmahatpure01@gmail.com';
-        $config['smtp_pass'] = '76fe9c7e-7bd4-4c8f-b579-48631d690d61';
-        $config['smtp_port'] = '2525';
-        $config['charset'] = 'UTF8';
-        $config['mailtype'] = 'html';
         $this->email->set_newline("\r\n");
-        $this->email->initialize($config);
         $this->from = 'Genuine Buy';
         $this->from_email = 'genuine-buy@verificare.com';
         $this->email->from($this->from_email, $this->from);
