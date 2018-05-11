@@ -139,7 +139,7 @@ class Admin_Model extends CI_Model
                 $html = "<p>Your Account has been successfully created. Your login credentials are:</p>
                 <p>Email: ".$data['user_email']."</p>
                 <p>Password: ".$password."</p>";
-                //$this->sendMail($data['user_email'], $subject, $html);
+                $this->sendMail($data['user_email'], $subject, $html);
                 return array('publicId'=> $data['user_public_id']);
             } else {
                 return false;
@@ -380,7 +380,7 @@ class Admin_Model extends CI_Model
         $this->load->library('email');
         $config['useragent'] = 'Genuine Buy';
         $config['protocol'] = 'smtp';
-        $config['smtp_crypto'] =  'ssl';
+        $config['smtp_crypto'] =  'tls';
         $config['smtp_host'] =  'smtp.elasticemail.com';
         $config['smtp_user'] =  'jmahatpure01@gmail.com';
         $config['smtp_pass'] = '76fe9c7e-7bd4-4c8f-b579-48631d690d61';
@@ -390,7 +390,7 @@ class Admin_Model extends CI_Model
         $this->email->set_newline("\r\n");
         $this->email->initialize($config);
         $this->from = 'Genuine Buy';
-        $this->from_email = 'genuine-buy';
+        $this->from_email = 'genuine-buy@verificare.com';
         $this->email->from($this->from_email, $this->from);
         $this->email->reply_to($this->from, $this->from_email);
         $this->email->to($to);
