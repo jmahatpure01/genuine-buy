@@ -1,0 +1,43 @@
+Hyperledger environment setup : https://hyperledger.github.io/composer/latest/installing/development-tools.html
+	-The Step 4 needs to be modified:
+		- clone the fabric-tools repo
+		- cd into fabric-tools/
+		- run downloadFabric.sh
+		- After Downloading, run startFabric.sh and createPeerAdminCard.sh
+
+This will complete environment setup and Starting Fabric
+
+Now, Clone the medic-chain repo and follow the commands(reference:https://hyperledger.github.io/composer/latest/tutorials/developer-tutorial.html)
+	- cd medic-chain/
+	- composer archive create -t dir -n .
+	- composer network install --card PeerAdmin@hlfv1 --archiveFile medic-chain@0.0.6.bna
+	- composer network start --networkName medic-chain --networkVersion 0.0.6 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
+	- composer card import --file networkadmin.card
+	- composer network ping --card admin@tutorial-network
+
+	
+
+    To create the REST API, navigate to the tutorial-network directory and run the following command:
+
+    - composer-rest-server
+
+    Enter admin@tutorial-network as the card name.
+
+    Select never use namespaces when asked whether to use namespaces in the generated API.
+
+    Select No when asked whether to secure the generated API.
+
+    Select Yes when asked whether to enable event publication.
+
+    Select No when asked whether to enable TLS security.
+
+
+
+Now, Clone the genuine-buy codeigniter repo in a web-server(with php) htdocs
+	- cd genuine-buy/
+	- run {php-executable-path}/php composer.phar install
+	- import genuine-buy.sql in phpmyadmin (in include command for creating database with name genuine-buy)
+	- if you are changing the directory of genuine-buy inside the htdocs folder then change the base_url variable in application/config/config.php accordingly
+
+
+
