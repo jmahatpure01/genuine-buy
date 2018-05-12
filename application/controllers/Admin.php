@@ -581,7 +581,6 @@ class Admin extends CI_Controller
     private function generateHistoryTable($history)
     {
         $table = array();
-        $userType = $this->session->userdata('userType');
 
         if (is_array($history)) {
             foreach ($history as $item) {

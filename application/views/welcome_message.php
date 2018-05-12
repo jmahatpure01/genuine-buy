@@ -16,7 +16,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<!-- Wrapper -->
 			<div id="wrapper">
-
+				<div class="search">
+					<a href="<?php echo base_url('welcome/searchMedicine') ?>" >SEARCH MEDICINE</a>
+				</div>
 				<!-- Header -->
 					<header id="header">
 						<div class="logo"> 
